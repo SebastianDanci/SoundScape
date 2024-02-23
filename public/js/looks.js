@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const correctGuess = post.getAttribute('data-guess-answer').toLowerCase();
             const postTitle = post.querySelector('.post-title');
 
-            audioPlayer.pause(); // This pauses the audio
+            audioPlayer.pause();
 
             // Always show the video
             post.classList.replace('audio-post', 'video-post');
