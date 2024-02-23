@@ -334,22 +334,22 @@ body {
 #messagesCollapse .card-body::-webkit-scrollbar,
 .secondary-box::-webkit-scrollbar,
 .friends-card::-webkit-scrollbar,
-.feed::-webkit-scrollbar{
+.feed::-webkit-scrollbar {
     width: 5px;
 }
 
 #messagesCollapse .card-body::-webkit-scrollbar-thumb,
 .secondary-box::-webkit-scrollbar-thumb,
 .friends-card::-webkit-scrollbar-thumb,
-.feed::-webkit-scrollbar-thumb{
+.feed::-webkit-scrollbar-thumb {
     background: #2a3f54;
     border-radius: 10px;
 }
 
 #messagesCollapse .card-body::-webkit-scrollbar-track,
- .secondary-box::-webkit-scrollbar-track,
- .friends-card::-webkit-scrollbar-track,
- .feed::-webkit-scrollbar-track{
+.secondary-box::-webkit-scrollbar-track,
+.friends-card::-webkit-scrollbar-track,
+.feed::-webkit-scrollbar-track {
     background: transparent;
 }
 
@@ -420,7 +420,7 @@ body {
 /* Feed area */
 .feed {
     background-color: #131921;
-    transition: padding-left 0.5s, padding-right 0.5s; 
+    transition: padding-left 0.5s, padding-right 0.5s;
 }
 
 /* General post styles */
@@ -429,7 +429,7 @@ body {
     border-radius: 8px;
     padding: 1rem;
     margin-bottom: 1rem;
-    color: #FFFFFF; 
+    color: #FFFFFF;
 }
 
 /* User Info */

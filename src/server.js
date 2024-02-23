@@ -18,7 +18,7 @@ const client = new MongoClient(connectionURI, {
     serverAPI: {
         version: ServerApiVersion.v1,
         strict: false,
-        deprecationErrors:true,
+        deprecationErrors: true,
     }
 });
 
@@ -29,16 +29,16 @@ const collection = database.collection("Users");
 app.get(studentIdPath + '/getUsers', async (req, res) => {
     try {
         await client.connect();
-        
+
         const query = {};
         const results = await collection.find(query).toArray();
-        
-        res.status(200).json(results); 
+
+        res.status(200).json(results);
     } catch (error) {
         res.status(500).send("An error occurred while fetching users");
         console.error(error);
     } finally {
-        await client.close(); 
+        await client.close();
     }
 });
 
@@ -58,20 +58,20 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // serve index.html
-app.get(studentIdPath, (req, res) =>{
+app.get(studentIdPath, (req, res) => {
     res.sendFile(__dirname.substring(0, __dirname.length - 3) + "index.html");
 });
 
 // GET Endpoint
 app.get(studentIdPath + '/get', (req, res) => {
-    res.send({message: "Hello from the server!"});
+    res.send({ message: "Hello from the server!" });
 });
 
 // POST Endpoint
 app.post(studentIdPath, (req, res) => {
     const receivedData = req.body;
     console.log(receivedData);
-    res.send({"Data received from the client" : receivedData})
+    res.send({ "Data received from the client": receivedData })
 });
 
 // Start the server

@@ -37,18 +37,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
             audioPlayer.pause();
 
-            // Always show the video
+            // Show the video regardless of the guess's correctness
             post.classList.replace('audio-post', 'video-post');
             videoContainer.style.display = '';
             audioPlayer.style.display = 'none';
 
-            // Check if the guess is correct
             if (userGuess === correctGuess) {
                 postTitle.textContent = 'Correct guess! This is the video:';
+                postDescription.textContent = 'The mystery sound comes from this video! Did you guess correctly?';
             } else {
-                postTitle.textContent = 'Incorrect guess. Here is the video:';
+                postTitle.textContent = `Incorrect guess. The correct guess was "${correctGuess}". Here is the video:`;
+                postDescription.textContent = 'The mystery sound comes from this video!';
             }
-            postDescription.textContent = 'The mystery sound comes from this video! Did you guess correctly?';
+
             // Hide the guess input section after a guess is made
             guessSection.style.display = 'none';
         }
