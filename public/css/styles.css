@@ -1,0 +1,590 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-family: Arial, sans-serif;
+    background-color: #202c3b;
+}
+
+/* Header styles */
+.header {
+    background-color: #1C2331;
+    padding: 0.5rem 1rem;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    height: 8vh;
+}
+
+/* Logo text styling */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+.logo img {
+    height: 5vh;
+    margin-right: 0.3vw;
+}
+
+.col.col-lg-2 {
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    max-width: 10vw;
+    margin-left: 1vw;
+}
+
+/* Search input styling */
+.searchBar input {
+    border-radius: 20px;
+    color: #ffffff;
+    background-color: #333a4d;
+    border: none;
+    padding: 0.5rem 1rem;
+    flex-grow: 2;
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: #131921;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    height: 7vh;
+}
+
+.navbar .container-fluid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar .btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+
+.navbar button {
+    background-color: #333a4d;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar button:hover {
+    background-color: #0d6efd;
+}
+
+.navbar .col {
+    flex: 1;
+    text-align: center;
+}
+
+/* Main content area */
+.container-fluid.main-content {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    height: calc(100vh - 8vh - 6vh - 5vh);
+    align-items: stretch;
+}
+
+.main-content>.collapse,
+.main-content>.feed {
+    width: 100%;
+}
+
+/* Friends and Messages dropdowns */
+#friendsCollapse,
+#messagesCollapse {
+    background-color: #131921;
+    color: #ffffff;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Card styling for dropdowns */
+.card {
+    background-color: #202c3b;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: none;
+    margin: 10px 0;
+    border-right: 10px;
+}
+
+/* Card body */
+.card-body {
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjust feed, messages, and friends list to be individual scrollable columns */
+.feed,
+#messagesCollapse .card-body,
+#friendsCollapse .card-body {
+    overflow-y: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#messagesCollapse .card,
+#friendsCollapse .card {
+    margin: 0;
+    border: none;
+    background-color: #202c3b;
+    height: 5vh;
+    display: flex;
+}
+
+#messagesCollapse.collapse.show,
+#friendsCollapse.collapse.show {
+    padding: 1vh 1vh 8vh 1vh;
+    margin: 0;
+    width: 30%;
+    max-height: 100%;
+    transition: max-height 0.35s ease, width 0.35s ease;
+}
+
+/* Messages and Friends collapse animation */
+#messagesCollapse.collapsing,
+#friendsCollapse.collapsing {
+    transition: max-height 0.35s ease, width 0.35s ease;
+}
+
+#messagesCollapse:not(.show),
+#friendsCollapse:not(.show) {
+    max-height: 0;
+    width: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, width 0.35s ease;
+}
+
+/* Modal styling */
+.modal-content {
+    background-color: #202c3b;
+    color: #ffffff;
+}
+
+/* Form input styling */
+.form-control {
+    background-color: #333a4d;
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border: none;
+}
+
+.navbar .btn-secondary {
+    background-color: #333a4d;
+    border-color: #333a4d;
+}
+
+.navbar .btn-secondary.active,
+.navbar .btn-secondary:active {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-link {
+    color: #0d6efd;
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+    background-color: #333a4d;
+    border-bottom: 1px solid #474f61;
+}
+
+.modal-title {
+    color: #ffffff;
+}
+
+.modal-header .close {
+    color: #ffffff;
+    opacity: 1;
+}
+
+.modal-footer .btn-secondary {
+    background-color: #474f61;
+}
+
+.modal-footer .btn-primary {
+    background-color: #0d6efd;
+}
+
+/* Message collapse propreties */
+#messagesCollapse .card-body,
+#friendsCollapse .card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    gap: 10px;
+    overflow-y: auto;
+    height: 35%;
+    background-color: #131921;
+}
+
+/* Individual message styling */
+#messagesCollapse .card-body .message .message-content {
+    margin-top: 4px;
+    text-align: center;
+}
+
+/* Message input styling */
+.message-input {
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    margin-top: auto;
+}
+
+.message-input input {
+    flex-grow: 1;
+    border-radius: 18px;
+    padding: 10px;
+    border: none;
+    width: 80%;
+    background-color: #4A5D70;
+    color: #ECECEC;
+}
+
+.message-input input::placeholder {
+    color: #ECECEC;
+}
+
+/* Current friend highlight */
+.secondary-box {
+    margin-top: 2vh;
+    background-color: #202c3b;
+    padding: 10px;
+    border-radius: 15px;
+    font-weight: bold;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 0;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    height: 60%;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1vh;
+}
+
+.first {
+    margin-top: 5vh
+}
+
+.message {
+    color: #FFFFFF;
+    font-size: 14px;
+    border-radius: 18px;
+    padding: 8px 12px;
+    margin: 4px 0;
+    width: fit-content;
+    max-width: 60%;
+}
+
+/* Styles for messages from friends */
+.friend-message {
+    background-color: #4A5D70;
+    align-self: flex-start;
+}
+
+/* Styles for messages from the user */
+.user-message {
+    background-color: #0884cc;
+    align-self: flex-end;
+    text-align: right;
+}
+
+/* Scrollbar styling  */
+#messagesCollapse .card-body::-webkit-scrollbar,
+.secondary-box::-webkit-scrollbar,
+.friends-card::-webkit-scrollbar,
+.feed::-webkit-scrollbar{
+    width: 5px;
+}
+
+#messagesCollapse .card-body::-webkit-scrollbar-thumb,
+.secondary-box::-webkit-scrollbar-thumb,
+.friends-card::-webkit-scrollbar-thumb,
+.feed::-webkit-scrollbar-thumb{
+    background: #2a3f54;
+    border-radius: 10px;
+}
+
+#messagesCollapse .card-body::-webkit-scrollbar-track,
+ .secondary-box::-webkit-scrollbar-track,
+ .friends-card::-webkit-scrollbar-track,
+ .feed::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0d6efd;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Friends Dropdown Styling */
+#friendsCollapse .card-body {
+    background-color: #131921;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.friends-section .title,
+.suggestions-section .title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0d6efd;
+    margin-bottom: 15px;
+}
+
+.friend-list,
+.suggestion-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.friend,
+.friend {
+    background-color: #233446;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.friend:hover,
+.friend:hover {
+    background-color: #345366;
+}
+
+.btn-refresh {
+    background-color: #0d6efd;
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 20px;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-refresh:hover {
+    background-color: #1a8bff;
+}
+
+/* Feed area */
+.feed {
+    background-color: #131921;
+    transition: padding-left 0.5s, padding-right 0.5s; 
+}
+
+/* General post styles */
+.post {
+    background-color: #19212C;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    color: #FFFFFF; 
+}
+
+/* User Info */
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.user-name {
+    font-weight: bold;
+    margin-right: auto;
+}
+
+/* Post Content */
+.post-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-description {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+/* Like and Interaction Section */
+.interaction-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+}
+
+.like-count {
+    display: flex;
+    align-items: center;
+    color: #ADB5BD;
+}
+
+.btn-outline-light {
+    border-color: #ADB5BD;
+    color: #ADB5BD;
+}
+
+.btn-outline-light:hover {
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
+.guess-input,
+.guess-btn {
+    font-size: 0.875rem;
+}
+
+.guess-input {
+    background-color: #333A4D;
+    border: 1px solid #495057;
+    color: #FFFFFF;
+}
+
+.guess-btn {
+    background-color: #1c7ed6;
+    color: #FFFFFF;
+    border: none;
+}
+
+/* Modal for making a post*/
+.make-post-container {
+    margin-bottom: 2rem;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.modal-content {
+    background-color: #333a4d;
+    color: #ffffff;
+}
+
+.modal-header .close {
+    color: #ffffff;
+}
+
+.modal-footer .btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.modal-footer .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.make-post-container {
+    position: fixed;
+    right: 46.5%;
+    z-index: 1000;
+}
+
+/*Footer */
+footer {
+    background-color: #131921;
+    color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    border-top: 1px solid #474f61;
+
+}
+
+.footer .help-link {
+    color: #0d6efd;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+/* Footer does not overlap content */
+body {
+    padding-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar button {
+        width: 100%;
+        margin: 0.25rem 0;
+    }
+
+    .main-content {
+        padding: 0.5rem;
+    }
+
+    .message {
+        font-size: 0.8rem;
+    }
+}

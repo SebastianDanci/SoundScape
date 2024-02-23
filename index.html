@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SoundScape</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="public/css/styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col logo">
+                    <img src="public/images/Logo.png" alt="Logo" style="max-height: 50px;"> SoundScape
+                </div>
+                <div class="col-md-auto">
+                    <input type="text" placeholder="Search..." class="form-control">
+                </div>
+                <div class="col col-lg-2">
+                    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#loginModal">Log
+                        in</button>
+                    <button type="button" class="btn btn-link" data-toggle="modal"
+                        data-target="#registerModal">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="container-fluid d-flex justify-content-around">
+            <button class="btn btn-secondary flex-fill" type="button" data-toggle="collapse"
+                data-target="#messagesCollapse" aria-expanded="false" aria-controls="messagesCollapse">
+                Messages
+            </button>
+            <button class="btn btn-secondary flex-fill" type="button">
+                Refresh Feed
+            </button>
+            <button class="btn btn-secondary flex-fill" type="button" data-toggle="collapse"
+                data-target="#friendsCollapse" aria-expanded="false" aria-controls="friendsCollapse">
+                Friends
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="container-fluid main-content">
+        <!-- Messages Dropdown -->
+        <div class="collapse" id="messagesCollapse">
+            <div class="card card-body">
+                <div class="title">Conversations</div>
+                <div class="friends-list">
+                    <div class="friend"><img src="public/images/cat.png" alt="User Image" class="user-image mr-3"
+                            style="width: 30px; height: 30px; border-radius: 50%;">Friend 1</div>
+                    <div class="friend"><img src="public/images/CryptoPunks.webp" alt="User Image"
+                            class="user-image mr-3" style="width: 30px; height: 30px; border-radius: 50%;">Friend 2
+                    </div>
+                    <div class="friend"><img src="public/images/Bober.webp" alt="User Image" class="user-image mr-3"
+                            style="width: 30px; height: 30px; border-radius: 50%;">Friend 3</div>
+                    <div class="friend"><img src="public/images/cat.png" alt="User Image" class="user-image mr-3"
+                            style="width: 30px; height: 30px; border-radius: 50%;">Friend 4</div>
+                </div>
+            </div>
+            <div class="secondary-box">
+                <div class="title"> <img src="public/images/cat.png" alt="User Image" class="user-image mr-3"
+                        style="width: 30px; height: 30px; border-radius: 50%;">Current Conversation</div>
+                <div class="first message friend-message">
+                    <div class="message-content">Hey, this is a message</div>
+                </div>
+                <div class="message user-message">
+                    <div class="message-content">That is a message indeed</div>
+                </div>
+                <div class="message user-message">
+                    <div class="message-content">That is a message indeed</div>
+                </div>
+                <div class="message friend-message">
+                    <div class="message-content">Hey, this is a message</div>
+                </div>
+                <div class="message user-message">
+                    <div class="message-content">That is a message indeed</div>
+                </div>
+                <div class="message friend-message">
+                    <div class="message-content">Hey, this is a message</div>
+                </div>
+                <div class="first message friend-message">
+                    <div class="message-content">Hey, this is a message</div>
+                </div>
+                <div class="message user-message">
+                    <div class="message-content">That is a message indeed</div>
+                </div>
+                <div class="message user-message">
+                    <div class="message-content">That is a message indeed</div>
+                </div>
+                <div class="message friend-message">
+                    <div class="message-content">Hey, this is a message</div>
+                </div>
+                <div class="message user-message">
+                    <div class="message-content">That is a message indeed</div>
+                </div>
+                <div class="message friend-message">
+                    <div class="message-content">Hey, this is a message</div>
+                </div>
+            </div>
+            <div class="message-input">
+                <input type="text" placeholder="Write your message here...">
+            </div>
+        </div>
+
+
+        <!-- Feed Area -->
+        <div class="feed pt-3 mw-5" id="feed">
+            <!-- Make Post Button - Floating at the top of the feed -->
+            <div class="make-post-container text-center">
+                <button class="btn btn-success" type="button" data-toggle="modal" data-target="#makePostModal">+ Make
+                    Post</button>
+            </div>
+            <!-- Audio Post with hidden video and audio elements -->
+            <div class="post audio-post bg-dark text-white p-3 mb-4 rounded" data-guess-answer="v12">
+                <!-- User Info -->
+                <div class="user-info d-flex align-items-center mb-4">
+                    <img src="public/images/CryptoPunks.webp" alt="User Image" class="user-image mr-3"
+                        style="width: 30px; height: 30px; border-radius: 50%;">
+                    <h6 class="user-name m-0">Paknot</h6>
+                </div>
+                <!-- Post Content -->
+                <h5 class="post-title">Unguessed Post: Can You Guess This Sound?</h5>
+                <!-- Hidden Video -->
+                <div class="video-container" style="display:none;">
+                    <video controls class="w-100 mt-2 video-player">
+                        <source src="/public/videos/v12.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <!-- Visible Audio -->
+                <audio controls class="w-100 mt-2 audio-player">
+                    <source src="public/audios/v12.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <p class="post-description mt-3">Listen to the sound and make your guess below!</p>
+                <!-- Guess Input -->
+                <div class="input-group mt-2">
+                    <input type="text" class="form-control guess-input" placeholder="Type your guess here...">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary guess-btn" type="button">Guess</button>
+                    </div>
+                </div>
+                <!-- Like and Interaction Section -->
+                <div class="interaction-section d-flex align-items-center justify-content-between mt-3">
+                    <span class="like-count">👍 123 Likes</span>
+                    <button class="btn btn-outline-light btn-sm">👍 Like</button>
+                </div>
+            </div>
+
+
+
+            <!-- Video Post Example -->
+            <div class="post video-post bg-dark text-white p-3 mb-4 rounded">
+                <!-- User Info -->
+                <div class="user-info d-flex align-items-center mb-4">
+                    <img src="public/images/Bober.webp" alt="User Image" class="user-image mr-3"
+                        style="width: 30px; height: 30px; border-radius: 50%;">
+                    <h6 class="user-name m-0">Turb1na</h6>
+                </div>
+                <!-- Post Content -->
+                <h5 class="post-title">Video Reveal: We got tiger mafia!</h5>
+                <video controls class="w-100 mt-2">
+                    <source src="/public/videos/cgi.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="post-description mt-3">The mystery sound comes from this video! Did you guess correctly?</p>
+                <!-- Like and Interaction Section -->
+                <div class="interaction-section d-flex align-items-center justify-content-between mt-3">
+                    <span class="like-count">👍 89 Likes</span>
+                    <button class="btn btn-outline-light btn-sm">👍 Like</button>
+                </div>
+            </div>
+
+            <div class="post audio-post bg-dark text-white p-3 mb-4 rounded" data-guess-answer="cold start">
+                <!-- User Info -->
+                <div class="user-info d-flex align-items-center mb-4">
+                    <img src="public/images/CryptoPunks.webp" alt="User Image" class="user-image mr-3"
+                        style="width: 30px; height: 30px; border-radius: 50%;">
+                    <h6 class="user-name m-0">RIA999</h6>
+                </div>
+                <!-- Post Content -->
+                <h5 class="post-title">Unguessed Post: Can You Guess This Sound?</h5>
+                <!-- Hidden Video -->
+                <div class="video-container" style="display:none;">
+                    <video controls class="w-100 mt-2 video-player">
+                        <source src="/public/videos/cold.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <!-- Visible Audio -->
+                <audio controls class="w-100 mt-2 audio-player">
+                    <source src="public/audios/cold.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <p class="post-description mt-3">Listen to the sound and make your guess below!</p>
+                <!-- Guess Input -->
+                <div class="input-group mt-2">
+                    <input type="text" class="form-control guess-input" placeholder="Type your guess here...">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary guess-btn" type="button">Guess</button>
+                    </div>
+                </div>
+                <!-- Like and Interaction Section -->
+                <div class="interaction-section d-flex align-items-center justify-content-between mt-3">
+                    <span class="like-count">👍 123 Likes</span>
+                    <button class="btn btn-outline-light btn-sm">👍 Like</button>
+                </div>
+            </div>
+
+            <!-- Video Post Example -->
+            <div class="post video-post bg-dark text-white p-3 mb-4 rounded">
+                <!-- User Info -->
+                <div class="user-info d-flex align-items-center mb-4">
+                    <img src="public/images/cat.png" alt="User Image" class="user-image mr-3"
+                        style="width: 30px; height: 30px; border-radius: 50%;">
+                    <h6 class="user-name m-0">Tiger Liquidation Team</h6>
+                </div>
+                <!-- Post Content -->
+                <h5 class="post-title">Video Reveal: POV: Tiger Mafia!</h5>
+                <video controls class="w-100 mt-2">
+                    <source src="/public/videos/cgi.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="post-description mt-3">The mystery sound comes from this video! Did you guess correctly?</p>
+                <!-- Like and Interaction Section -->
+                <div class="interaction-section d-flex align-items-center justify-content-between mt-3">
+                    <span class="like-count">👍 89 Likes</span>
+                    <button class="btn btn-outline-light btn-sm">👍 Like</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Friends Dropdown -->
+        <div class="collapse" id="friendsCollapse">
+            <div class="card card-body friends-card">
+                <!-- Friends List -->
+                <section class="friends-section">
+                    <h2 class="title">Friends</h2>
+                    <ul class="friend-list">
+                        <li class="friend"><img src="public/images/CryptoPunks.webp" alt="User Image"
+                                class="user-image mr-3" style="width: 30px; height: 30px; border-radius: 50%;">Friend 1
+                        </li>
+                        <li class="friend"><img src="public/images/Bober.webp" alt="User Image" class="user-image mr-3"
+                                style="width: 30px; height: 30px; border-radius: 50%;">Friend 2</li>
+                        <li class="friend"><img src="public/images/cat.png" alt="User Image" class="user-image mr-3"
+                                style="width: 30px; height: 30px; border-radius: 50%;">Friend 3
+                        </li>
+                        <li class="friend"><img src="public/images/Bober.webp" alt="User Image" class="user-image mr-3"
+                                style="width: 30px; height: 30px; border-radius: 50%;">Friend 4</li>
+                    </ul>
+                </section>
+            </div>
+            <!-- Suggestions List -->
+            <section class="secondary-box">
+                <h2 class="title">Suggestions</h2>
+                <ul class="suggestion-list">
+                    <li class="friend"><img src="public/images/Bober.webp" alt="User Image" class="user-image mr-3"
+                            style="width: 30px; height: 30px; border-radius: 50%;">Suggested Friend 1</li>
+                    <li class="friend"><img src="public/images/cat.png" alt="User Image" class="user-image mr-3"
+                            style="width: 30px; height: 30px; border-radius: 50%;">Suggested
+                        Friend 2</li>
+                    <li class="friend"><img src="public/images/Bober.webp" alt="User Image" class="user-image mr-3"
+                            style="width: 30px; height: 30px; border-radius: 50%;">Suggested Friend 3</li>
+                    <li class="friend"><img src="public/images/CryptoPunks.webp" alt="User Image"
+                            class="user-image mr-3" style="width: 30px; height: 30px; border-radius: 50%;">Suggested
+                        Friend 4</li>
+                    <li class="friend"><img src="public/images/cat.png" alt="User Image" class="user-image mr-3"
+                            style="width: 30px; height: 30px; border-radius: 50%;">Suggested
+                        Friend 5</li>
+                    <li class="friend"><img src="public/images/Bober.webp" alt="User Image" class="user-image mr-3"
+                            style="width: 30px; height: 30px; border-radius: 50%;">Suggested Friend 6</li>
+                </ul>
+            </section>
+            <!-- Refresh Button -->
+            <button class="btn-refresh btn btn-primary">Refresh Suggestions</button>
+        </div>
+
+    </div>
+
+    <!-- Make Post Modal for SoundScape -->
+    <div class="modal fade" id="makePostModal" tabindex="-1" role="dialog" aria-labelledby="makePostModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="makePostModalLabel">Create a New Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Form for creating a post -->
+                    <form id="makePostForm">
+                        <!-- Select for post type -->
+                        <div class="form-group">
+                            <label for="postType">Post Type</label>
+                            <select class="form-control" id="postType">
+                                <option value="text">Text</option>
+                                <option value="video">Video</option>
+                            </select>
+                        </div>
+                        <!-- Input for post title -->
+                        <div class="form-group">
+                            <label for="postTitle">Title</label>
+                            <input type="text" class="form-control" id="postTitle" placeholder="Enter title" required>
+                        </div>
+                        <!-- Textarea for text post content -->
+                        <div class="form-group text-post-content">
+                            <label for="postContent">Content</label>
+                            <textarea class="form-control" id="postContent" rows="3" placeholder="What's on your mind?"
+                                required></textarea>
+                        </div>
+                        <!-- File input for video post media -->
+                        <div class="form-group video-post-content">
+                            <label for="postVideo">Video File</label>
+                            <input type="file" class="form-control-file" id="postVideo" accept="video/*">
+                        </div>
+                        <!-- Answer input for video post -->
+                        <div class="form-group video-post-content">
+                            <label for="postAnswer">Correct Answer</label>
+                            <input type="text" class="form-control" id="postAnswer"
+                                placeholder="Enter the correct answer for the guess">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Post</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login to SoundScape</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+                <!-- Modal Footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-link">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register for SoundScape</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="registerUsername">Username</label>
+                            <input type="text" class="form-control" id="registerUsername" placeholder="Enter username"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">Email address</label>
+                            <input type="email" class="form-control" id="registerEmail" placeholder="Enter email"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" placeholder="Password"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerConfirmPassword">Confirm Password</label>
+                            <input type="password" class="form-control" id="registerConfirmPassword"
+                                placeholder="Confirm Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" form="registerForm" class="btn btn-primary">Log in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container text-center">
+            <span>&copy; All rights reserved</span>
+            <div>
+                <a href="#" class="help-link">Need Help?</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/public/js/looks.js"></script>
+
+    <!-- Script dependencies for Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
