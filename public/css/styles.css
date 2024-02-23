@@ -126,12 +126,7 @@ body {
 
 /* Card styling for dropdowns */
 .card {
-    background-color: #202c3b;
-    margin-bottom: 20px;
     border-radius: 10px;
-    border: none;
-    margin: 10px 0;
-    border-right: 10px;
 }
 
 /* Card body */
@@ -152,9 +147,6 @@ body {
 #friendsCollapse .card {
     margin: 0;
     border: none;
-    background-color: #202c3b;
-    height: 5vh;
-    display: flex;
 }
 
 #messagesCollapse.collapse.show,
@@ -423,14 +415,6 @@ body {
     transition: padding-left 0.5s, padding-right 0.5s;
 }
 
-/* General post styles */
-.post {
-    background-color: #19212C;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    color: #FFFFFF;
-}
 
 /* User Info */
 .user-info {

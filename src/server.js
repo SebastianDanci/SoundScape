@@ -8,9 +8,9 @@ import { MongoClient, ServerApiVersion, ObjectId } from 'mongodb';
 
 const app = express();
 const studentIdPath = '/M00886707';
-app.use(cors()); // Enable CORS for all routes
+app.use(cors());
 app.use(express.static("./"));
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 const connectionURI = "mongodb+srv://SebastianD:nfmOGw5BxTtTX4Ke@coursework.zpidlav.mongodb.net/?retryWrites=true&w=majority&appName=Coursework";
 

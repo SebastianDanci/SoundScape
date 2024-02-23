@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const messagesCollapse = document.getElementById('messagesCollapse');
     const friendsCollapse = document.getElementById('friendsCollapse');
 
+    // Set dynamic padding
     function setFeedPadding() {
         let paddingValue;
 
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             audioPlayer.pause();
 
-            // Show the video regardless of the guess's correctness
+            // Show the video 
             post.classList.replace('audio-post', 'video-post');
             videoContainer.style.display = '';
             audioPlayer.style.display = 'none';
